@@ -1,0 +1,3 @@
+pane	main	1	1	:*	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+window	main	1	:carlinhoshk	1	:*	cfbe,173x39,0,0,1	:
+state	main	

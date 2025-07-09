@@ -1,0 +1,14 @@
+pane	0	1	1	:*	1	nvim .config/i3	:/home/carlinhoshk	0	nvim	:nvim .config/i3
+pane	0	1	1	:*	2	carlinhoshk@archlinux:~/.config/i3/scripts	:/home/carlinhoshk/.config/i3/scripts	1	zsh	:
+pane	0	2	0	:-	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+pane	1	1	1	:*	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+pane	main	1	1	:*	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	nvim	:nvim .config/tmux
+pane	main	2	0	:-	1	top	:/home/carlinhoshk/dev/aulas-faculdade	1	top	:top
+pane	main	3	0	:	1	carlinhoshk@archlinux:~/C-dotfiles	:/home/carlinhoshk/C-dotfiles	1	zsh	:
+window	0	1	:zsh	1	:*	94e6,173x39,0,0[173x19,0,0,1,173x19,0,20,2]	:
+window	0	2	:zsh	0	:-	cfc0,173x39,0,0,3	:
+window	1	1	:zsh	1	:*	cfc1,173x39,0,0,4	:
+window	main	1	:nvim	1	:*	cfc2,173x39,0,0,5	:
+window	main	2	:top	0	:-	cfc3,173x39,0,0,6	:
+window	main	3	:zsh	0	:	cfc4,173x39,0,0,7	:
+state	main	0

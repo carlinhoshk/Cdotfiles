@@ -1,0 +1,22 @@
+# Arquivos temporários
+*.swp
+*.swo
+*.bak
+*.tmp
+*~
+
+# Pastas de cache
+.cache/
+.local/share/
+
+# Históricos e sessões
+#---Melhor deixar comentado ajuda no ctrl+r---#
+#.zsh_history
+#.bash_history
+
+# Configs específicas de programas
+.mozilla/
+.chromium/
+.vscode/
+Downloads/
+

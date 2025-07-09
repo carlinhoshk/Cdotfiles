@@ -1,0 +1,6 @@
+pane	0	1	1	:*	1	nvim .	:/home/carlinhoshk/dev/Curso_Iniciando_React_Rocketseat	0	nvim	:nvim .
+pane	0	1	1	:*	2	carlinhoshk@archlinux:~/dev/Curso_Iniciando_React_Rocketseat/01-fundamentos-reactjs	:/home/carlinhoshk/dev/Curso_Iniciando_React_Rocketseat/01-fundamentos-reactjs	1	zsh	:
+pane	main	1	1	:*	1	carlinhoshk@archlinux:~/Downloads	:/home/carlinhoshk/Downloads	1	zsh	:
+window	0	1	:01-fundamentos-reactjs	1	:*	0350,95x73,0,0[95x36,0,0,0,95x36,0,37,2]	:
+window	main	1	:Downloads	1	:*	aca0,71x32,0,0,3	:
+state	main	0

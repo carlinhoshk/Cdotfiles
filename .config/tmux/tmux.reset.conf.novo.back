@@ -1,0 +1,146 @@
+
+# Tmux Configuration File
+
+### GENERAL SETTINGS ###
+
+# Define default shell
+set -g default-shell ${SHELL} 
+set -g default-command ${SHELL}
+# Reload tmux config
+bind R source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded!"
+
+# Prefix settings
+set -g prefix C-a
+unbind C-b
+bind C-a send-prefix
+
+
+unbind Space
+bind-key Space switch-client -l
+# Start windows numbering at 1
+set -g base-index 1
+setw -g pane-base-index 1
+
+set -sg escape-time 0
+# General behavior
+set -g detach-on-destroy off
+set -g history-limit 999999
+set -g renumber-windows on
+set -g set-clipboard on
+set -g status-position top
+setw -g mode-keys vi
+set -gq allow-passthrough on
+set-option -g focus-events on
+
+# Terminal compatibility
+set -g default-terminal "${TERM}"
+
+# Pane border styles
+#set -g pane-active-border-style 'fg=magenta,bg=default'
+#set -g pane-border-style 'fg=brightblack,bg=default'
+set -g pane-border-lines double
+set -g pane-border-indicators both
+### WINDOW & PANE NAVIGATION ###
+# Switch between windows
+bind H previous-window
+bind L next-window
+bind Tab last-window
+bind ^A last-window
+
+# Rename window
+bind r command-prompt "rename-window %%"
+
+# List windows & sessions
+bind ^W list-windows
+bind w list-windows
+bind S choose-session
+#bind '"' choose-window
+
+
+bind s choose-tree -Zs -O time -F "#{session_windows}"
+
+# Pane selection
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
+# Pane resizing
+bind -r , resize-pane -L 20
+bind -r . resize-pane -R 20
+bind -r - resize-pane -D 7
+bind -r = resize-pane -U 7
+bind z resize-pane -Z
+
+# Synchronize panes
+bind * setw synchronize-panes
+
+# Toggle pane border status
+bind P set pane-border-status
+unbind '"'
+unbind '-'
+# ebind '-' split-window -v
+# Pane management
+bind c kill-pane
+bind x swap-pane -D
+bind | split-window -h -c "#{pane_current_path}"
+bind s split-window -v -c "#{pane_current_path}"
+bind v split-window -h -c "#{pane_current_path}"
+
+bind - split-window -h -c "#{pane_current_path}"
+bind '"' split-window -v -c "#{pane_current_path}"
+# Lock, detach, refresh
+bind ^X lock-server
+bind ^D detach
+bind ^L refresh-client
+bind l refresh-client
+
+# Clear screen inside pane
+bind C-l send-keys "clear"\; send-keys "Enter"
+
+# Command prompt
+bind : command-prompt
+
+# Copy mode with Vi
+bind-key -T copy-mode-vi v send-keys -X begin-selection
+
+### WINDOW CREATION ###
+
+# New window (Prefix + c)
+bind c new-window -c "#{pane_current_path}"
+
+bind x kill-window
+# New window without prefix (Alt+n)
+bind -n M-n new-window -c "#{pane_current_path}"
+
+# Kill current window with Alt+x
+bind -n M-x kill-window
+### WINDOW SWITCHING (ALT + 1-9) ###
+
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
+
+# Quick switch between windows
+bind-key -T root            C-PageDown  next-window
+bind-key -T root            C-PageUp    previous-window
+
+# Swap windows
+bind-key -n                 C-S-PageUp  swap-window -d -t -1
+bind-key -n                 C-S-PageDown swap-window -d -t +1
+### CLEAR SCREEN & HISTORY ###
+
+### CLIPBOARD INTEGRATION ###
+
+# Copy buffer to system clipboard
+if-shell 'command -v xsel > /dev/null 2>&1' 'bind y run-shell "tmux save-buffer - | xsel -i -b"'
+if-shell '! command -v xsel > /dev/null 2>&1 && command -v xclip > /dev/null 2>&1' 'bind y run-shell "tmux save-buffer - | xclip -i -selection clipboard >/dev/null 2>&1"'
+
+# Custom option (optional)
+set -g @copy_to_os_clipboard true

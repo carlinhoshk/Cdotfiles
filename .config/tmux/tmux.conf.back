@@ -1,0 +1,138 @@
+# Fonte de arquivo separado para keybinds
+source-file ~/.config/tmux/tmux.reset.conf
+
+# Terminal settings
+set-option -g default-terminal 'screen-256color'
+set-option -g terminal-overrides ',xterm-256color:RGB'
+
+
+
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'fcsonline/tmux-thumbs'
+set -g @plugin 'sainnhe/tmux-fzf'
+set -g @plugin 'wfxr/tmux-fzf-url'
+set -g @plugin 'omerxx/tmux-floax'
+
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+
+# Monitora CPU e RAM na status bar
+set -g @plugin 'robhurring/tmux-mem-cpu-load'
+# Plugins (Dracula instead of Catppuccin)
+#set -g @plugin 'tmux-plugins/tpm'
+#set -g @plugin 'tmux-plugins/tmux-sensible'
+#set -g @plugin 'tmux-plugins/tmux-yank'
+#set -g @plugin 'tmux-plugins/tmux-resurrect'
+#set -g @plugin 'tmux-plugins/tmux-continuum'
+#
+
+set -g default-terminal "${TERM}"
+
+colorscheme_selector="~/github/dotfiles-latest/colorscheme/colorscheme-selector.sh"
+run-shell "~/github/dotfiles-latest/tmux/tools/linkarzu/set_tmux_colors.sh"
+
+# Dracula theme
+# https://draculatheme.com/tmux
+# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage,
+# tmux-ram-usage, network, network-bandwidth, network-ping, attached-clients,
+# network-vpn, weather, time, spotify-tui, kubernetes-context, synchronize-panes
+
+# Ativa o plugin Dracula
+set -g @plugin 'dracula/tmux'
+
+# Lado esquerdo da barra
+#set -g @dracula-show-left-icon "#(date +%H:%M:%S)"
+#set -g @dracula-show-left-icon "#(date +%H:%M:%S) | #{pane_current_path} "
+set-option -g allow-rename off
+set-option -g automatic-rename-format '#{b:pane_current_path}'
+# Configurações gerais do Dracula
+set -g @dracula-show-flags true
+set -g @dracula-refresh-rate 0
+set -g @dracula-transparent-powerline-bg true
+set -g @dracula-show-powerline true
+set -g @dracula-border-contrast true
+set -g @dracula-left-icon-padding 1
+
+set -g @dracula-cpu-usage-label " CPU"
+#set -g @dracula-cpu-colors cpu_bg_color
+#set -g @dracula-cpu-medium-thresh "30"  # Muda para laranja quando acima de 30%
+#set -g @dracula-cpu-high-thresh "80"    # Muda para vermelho quando acima de 80%
+
+set -g @dracula-force-gpu "NVIDIA"
+set -g @dracula-gpu-vram-used-accuracy ".2f"
+set -g @dracula-gpu-vram-total-accuracy ".1f"
+
+set -g @dracula-gpu-vram-label " VRAM"
+
+set -g @dracula-gpu-ram-usage-colors "green dark_gray"
+set -g @dracula-gpu-usage-colors "pink dark_gray"
+
+set -g @dracula-show-location true
+set -g @dracula-gpu-ram-colors "black dark_grey"
+set -g @dracula-ram-usage-label " RAM "
+
+set -g @dracula-gpu-usage-label "󰢮 GPU"
+set -g @dracula-cwd-max-dirs "0"
+set -g @dracula-cwd-max-chars "0"
+# Widgets no lado direito
+set -g @dracula-plugins "cpu-usage  ram-usage gpu-usage gpu-ram-usage "
+# Configurações específicas dos widgets
+set -g @dracula-time-format "%D %R:%S"
+#set -g @dracula-cpu-display-load true
+# crie abaixo usar a ram-usage-color 
+#set -g @dracula-ping-server "google.com"
+#set -g @dracula-ping-rate 5
+#set -g @dracula-battery-label "♥ "
+set -g @dracula-battery-label false
+set -g @dracula-show-battery-status true
+#set -g window-status-current-style 'fg=#282a36,bg=#bd93f9,bold'
+# TPM initialization
+set -g @dracula-colors "
+# simple catppuccin Color Pallette
+pink='#cba6f7'
+orange='#fab387'
+yellow='#f9e2af'
+green='#a6e3a1'
+cyan='#89dceb'
+light_purple='#b4befe'
+white='#cdd6f4'
+dark_gray='#313244'
+red='#f38ba8'
+gray='#45475a'
+dark_purple='#6c7086'
+"
+set -g @clipboard 'wl-copy'
+
+set -g @continuum-restore 'on'
+# Set the save interval in minutes, default is 15
+set -g @continuum-save-interval '5'
+set -g @resurrect-dir '~/.config/tmux/resurrect'
+# list of tmux plugins
+set -g @prefix_highlight_fg 'yellow'
+set -g @prefix_highlight_bg 'red'
+set -g @prefix_highlight_prefix_prompt 'PREFIX:'
+# for navigating between tmux panes using Ctrl-hjkl
+# If you have neovim open in a tmux pane, and another tmux pane on the right,
+# you won't be able to jump from neovim to the tmux pane on the right.
+#
+# If you want to do jump between neovim and tmux, you need to install the same
+# 'vim-tmux-navigator' plugin inside neovim
+set -g @plugin 'christoomey/vim-tmux-navigator'
+# Controle melhor entre panes (atalhos adicionais)
+set -g @plugin 'tmux-plugins/tmux-pain-control'
+set -g @plugin 'nhdaly/tmux-better-mouse-mode'
+# Configurações sensíveis (boas práticas)
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-open'
+# # persist tmux sessions after computer restart
+# # https://github.com/tmux-plugins/tmux-resurrect
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+# # allow tmux-ressurect to capture pane contents
+set -g @resurrect-capture-pane-contents 'on'
+
+# automatically saves sessions for you every 15 minutes (this must be the last plugin)
+# https://github.com/tmux-plugins/tmux-continuum
+set -g @plugin 'tmux-plugins/tmux-continuum'
+# enable tmux-continuum functionality
+run '~/.config/tmux/plugins/tpm'
+

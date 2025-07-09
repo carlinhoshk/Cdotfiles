@@ -1,0 +1,8 @@
+pane	0	1	1	:*	1	nvim .config/i3	:/home/carlinhoshk	0	nvim	:nvim .config/i3
+pane	0	1	1	:*	2	carlinhoshk@archlinux:~/.config/i3/scripts	:/home/carlinhoshk/.config/i3/scripts	1	zsh	:
+pane	0	2	0	:-	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+pane	1	1	1	:*	1	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+window	0	1	:scripts	1	:*	d2a6,114x39,0,0[114x19,0,0,1,114x19,0,20,3]	:
+window	0	2	:carlinhoshk	0	:-	cec1,114x39,0,0,4	:
+window	1	1	:carlinhoshk	1	:*	cadf,85x39,0,0,2	:
+state	0	1

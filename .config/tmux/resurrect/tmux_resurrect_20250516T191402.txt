@@ -1,0 +1,13 @@
+pane	0	1	1	:*	0	carlinhoshk@archlinux:~	:/home/carlinhoshk	0	zsh	:
+pane	0	1	1	:*	1	nvim .config/i3	:/home/carlinhoshk	0	nvim	:nvim .config/i3
+pane	0	1	1	:*	2	carlinhoshk@archlinux:~/.config/i3/scripts	:/home/carlinhoshk/.config/i3/scripts	1	zsh	:
+pane	0	2	0	:-	0	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+pane	1	1	1	:*	0	carlinhoshk@archlinux:~	:/home/carlinhoshk	1	zsh	:
+pane	main	1	1	:*	0	nvim .	:/home/carlinhoshk/dev/CAP	1	nvim	:nvim .
+pane	main	2	0	:-	0	nvim .	:/home/carlinhoshk/dev/frontend-projetoCAP	1	nvim	:nvim .
+window	0	1	:scripts	1	:*	d0d5,173x39,0,0[173x1,0,0,1,173x1,0,2,2,173x35,0,4,3]	:
+window	0	2	:carlinhoshk	0	:-	cfc1,173x39,0,0,4	:
+window	1	1	:carlinhoshk	1	:*	cfc2,173x39,0,0,5	:
+window	main	1	:CAP	1	:*	cfc3,173x39,0,0,6	:
+window	main	2	:frontend-projetoCAP	0	:-	cfc6,173x39,0,0,9	:
+state	main	0
